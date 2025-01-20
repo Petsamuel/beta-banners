@@ -102,7 +102,6 @@ export default function BannerGenerator() {
     }
   };
 
-  
   return (
     <>
       {modalState && (
@@ -130,9 +129,9 @@ export default function BannerGenerator() {
           />
         </Modal>
       )}
-      <section className="h-[101svh] flex flex-col gap-1 items-center justify-center snap-start w-full relative lg:px-8 px-4">
-        <div className="flex flex-col lg:flex-row gap-6 w-full justify-around items-center">
-          <div className="flex  relative basis-[50%] overflow-hidden">
+      <section className="h-[101svh] flex flex-col gap-1 items-center justify-center snap-start  relative lg:px-8 px-4 ">
+        <div className="grid lg:grid-cols-3 gap-3 w-full justify-around items-center">
+          <div className="flex relative overflow-hidden col-span-2">
             {/* <Swiper
               className="lg:w-[40svw] lg:h-[35svw] lg:mx-8 relative z-10 w-[90svw]"
               modules={[Pagination, Navigation]}
@@ -172,7 +171,7 @@ export default function BannerGenerator() {
             {/* </Swiper> */}
           </div>
           <form
-            className="basis-[50%]"
+            className=""
             onSubmit={handleSubmit(
               (data) => {
                 setdata(data);
@@ -184,7 +183,7 @@ export default function BannerGenerator() {
             )}
           >
             <Swiper
-              className="lg:w-[40svw] lg:h-[35svw] lg:mx-8 relative z-10 w-[90svw] "
+              className="relative z-10"
               modules={[Pagination, Navigation]}
               spaceBetween={30}
               slidesPerView={1}
@@ -224,7 +223,7 @@ export default function BannerGenerator() {
                 </SwiperSlide>
               </div>
 
-              <div className="flex justify-between  px-4 z-20  lg:absolute lg:bottom-0  w-full ">
+              <div className="flex justify-between px-4 z-20 w-full">
                 <div>
                   <Button
                     type="button"

@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@svgr/webpack": "^8.1.0",
     "@next/swc-win32-x64-msvc": "^15.1.4",
     "clsx": "^2.1.1",
     "html-to-image": "^1.11.11",
@@ -18,7 +17,6 @@
     "next": "15.1.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-haiku": "^2.1.8",
     "react-hook-form": "^7.54.2",
     "react-icons": "^5.4.0",
     "swiper": "^11.2.1",

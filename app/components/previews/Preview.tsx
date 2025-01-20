@@ -36,7 +36,7 @@ export const Preview = ({
           background: gradientStyles[selectedGradientTypes],
         }}
         className={clsx(
-          "bg-white w-fit  text-black p-8 rounded border dark:border-none dark:bg-gray-50 shadow-lg relative h-auto ",
+          "bg-white  text-black p-8 rounded border dark:border-none dark:bg-gray-50 shadow-lg relative h-auto ",
           bannerPreview
         )}
       >
