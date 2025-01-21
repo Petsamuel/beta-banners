@@ -26,13 +26,10 @@ export const Preview = ({
   descriptionAlignment,
   descriptionColor,
 }: // bannerPreview,
+// bannerPreview,
 PreviewProps) => {
   return (
-    <div
-      className={clsx(
-        "flex relative justify-center overflow-hidden h-full w-full"
-      )}
-    >
+    <div className={clsx("flex relative justify-center overflow-hidden")}>
       {/* preview */}
       <div
         id="banner-preview"
@@ -48,7 +45,7 @@ PreviewProps) => {
         </span>
 
         <div
-          className={` flex flex-col mt-4 text-4xl font-black capitalize text-balance  text-black z-10 w-full justify-center items-center`}
+          className={` flex flex-col mt-4 text-4xl font-black capitalize text-balance  text-black z-10 justify-center items-center`}
         >
           {patternList && (
             <div className="absolute inset-0 pointer-events-none flex items-center justify-center">

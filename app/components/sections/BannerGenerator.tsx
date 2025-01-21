@@ -128,8 +128,7 @@ export default function BannerGenerator() {
         <div className="grid grid-cols-3 gap-6 ">
           <div
             className={clsx(
-              "flex relative overflow-hidden col-span-2 justify-center items-center w-full h-auto",
-              watch("selectedBanner")
+              "flex relative overflow-hidden col-span-2 justify-center items-center w-[20rem] h-full"
             )}
           >
             <Preview
@@ -141,7 +140,7 @@ export default function BannerGenerator() {
               descriptionColor={descriptionColor}
               alignment={alignment}
               descriptionAlignment={descriptionAlignment}
-              // bannerPreview={watch("selectedBanner")}
+              bannerPreview={watch("selectedBanner")}
             />
           </div>
           <form
