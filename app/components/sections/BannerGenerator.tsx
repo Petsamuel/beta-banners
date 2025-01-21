@@ -6,6 +6,7 @@ import { StepOne } from "../formSteps/StepOne";
 import { StepTwo } from "../formSteps/StepTwo";
 import { StepThree } from "../formSteps/StepThree";
 // import { bannerSizes } from "../static/data";
+import clsx from "clsx";
 import { Modal } from "../Modal";
 import { StepFour } from "../formSteps/StepFour";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -36,7 +37,7 @@ export default function BannerGenerator() {
       colorEnd: "",
       selectedGradientType: "linear",
       patterns: "bg-dot-black",
-      selectedBanner: "aspect-linkedin-cover",
+      selectedBanner: "aspect-facebook-cover",
       tools: [] as JSX.Element[],
     },
   });
@@ -67,12 +68,6 @@ export default function BannerGenerator() {
       swiper.slidePrev();
     }
   };
-  // type stepProps = {
-  //   text: string;
-  // };
-  // const StepTitle = ({ text }: stepProps) => {
-  //   return <p className="text-center">{text}</p>;
-  // };
 
   type GradientType =
     | "linear"
@@ -130,30 +125,13 @@ export default function BannerGenerator() {
         </Modal>
       )}
       <section className="h-[101svh] flex flex-col gap-1 items-center justify-center snap-start  relative lg:px-8 px-4 ">
-        <div className="grid lg:grid-cols-3 gap-3 w-full justify-around items-center">
-          <div className="flex relative overflow-hidden col-span-2">
-            {/* <Swiper
-              className="lg:w-[40svw] lg:h-[35svw] lg:mx-8 relative z-10 w-[90svw]"
-              modules={[Pagination, Navigation]}
-              spaceBetween={30}
-              slidesPerView={1}
-              pagination={{ type: "bullets" }}
-              onSwiper={(swiper) => {
-                setValue(
-                  "selectedBanner",
-                  bannerSizes[swiper.activeIndex]?.name
-                );
-              }}
-              onSlideChange={(swiper) => {
-                setValue(
-                  "selectedBanner",
-                  bannerSizes[swiper.activeIndex]?.name
-                );
-              }}
-            > */}
-
-            {/* {bannerSizes.map((val) => ( */}
-            {/* <div  className="relative"> */}
+        <div className="grid grid-cols-3 gap-6 ">
+          <div
+            className={clsx(
+              "flex relative overflow-hidden col-span-2 justify-center items-center w-full h-auto",
+              watch("selectedBanner")
+            )}
+          >
             <Preview
               gradientStyles={gradientStyles}
               selectedGradientTypes={selectedGradientTypes}
@@ -163,15 +141,11 @@ export default function BannerGenerator() {
               descriptionColor={descriptionColor}
               alignment={alignment}
               descriptionAlignment={descriptionAlignment}
-              bannerPreview={watch("selectedBanner")}
+              // bannerPreview={watch("selectedBanner")}
             />
-            {/* </div> */}
-            {/* ))} */}
-
-            {/* </Swiper> */}
           </div>
           <form
-            className=""
+            className=" col-span-1"
             onSubmit={handleSubmit(
               (data) => {
                 setdata(data);
@@ -183,7 +157,7 @@ export default function BannerGenerator() {
             )}
           >
             <Swiper
-              className="relative z-10"
+              className="relative z-10 "
               modules={[Pagination, Navigation]}
               spaceBetween={30}
               slidesPerView={1}
@@ -196,29 +170,23 @@ export default function BannerGenerator() {
             >
               <div className="relative">
                 <SwiperSlide>
-                  {/* <StepTitle text="Brand" /> */}
                   <div className="">
                     <StepOne control={control} register={register} />
                   </div>
                 </SwiperSlide>
 
                 <SwiperSlide>
-                  {/* <StepTitle text="Description" /> */}
                   <StepTwo control={control} register={register} />
                 </SwiperSlide>
 
                 <SwiperSlide>
-                  {/* <StepTitle text="Technology" /> */}
-
                   <StepThree
                     control={control}
                     register={register}
                     watch={watch}
                   />
                 </SwiperSlide>
-
                 <SwiperSlide>
-                  {/* <StepTitle text="Background" /> */}
                   <StepFour control={control} register={register} />
                 </SwiperSlide>
               </div>

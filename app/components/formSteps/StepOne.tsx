@@ -4,8 +4,8 @@ import { StepProps } from "../../types/useType";
 
 export const StepOne = ({ control, register }: StepProps) => {
   return (
-    <section className="font-[montserrat] border-2 p-4 shadow-lg mb-4 rounded-lg">
-      <legend>Brand Information</legend>
+    <section className="font-[montserrat] border-2 p-4 shadow-lg mb-4 rounded-lg ">
+      <legend className="font-semibold">Brand Information</legend>
       <div>
         <label className="text-xs  text-black font-semibold">Brand Name</label>
         <input
@@ -62,7 +62,7 @@ export const StepOne = ({ control, register }: StepProps) => {
                   {...register("color")}
                   key={index}
                   type="button"
-                  className={`p-2 my-3 lg:rounded-full rounded-lg h-10 w-10  text-white text-xs border-white cursor-pointer`}
+                  className={`p-2 my-3 lg:rounded-full rounded-lg h-10 w-10  text-white text-[10px] border-white cursor-pointer`}
                   onClick={() => field.onChange(item)}
                   style={{ backgroundColor: item }}
                 >

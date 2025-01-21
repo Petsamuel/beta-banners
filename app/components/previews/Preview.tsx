@@ -25,10 +25,14 @@ export const Preview = ({
   color,
   descriptionAlignment,
   descriptionColor,
-  bannerPreview,
-}: PreviewProps) => {
+}: // bannerPreview,
+PreviewProps) => {
   return (
-    <div className="flex  relative w-full h-full justify-center">
+    <div
+      className={clsx(
+        "flex relative justify-center overflow-hidden h-full w-full"
+      )}
+    >
       {/* preview */}
       <div
         id="banner-preview"
@@ -36,8 +40,7 @@ export const Preview = ({
           background: gradientStyles[selectedGradientTypes],
         }}
         className={clsx(
-          "bg-white  text-black p-8 rounded border dark:border-none dark:bg-gray-50 shadow-lg relative h-auto ",
-          bannerPreview
+          "bg-white  text-black p-8 rounded border dark:border-none dark:bg-gray-50 shadow-lg relative "
         )}
       >
         <span className="absolute -left-5 top-2 px-4 font-[montserrat] text-sm -rotate-45 bg-main-blue dark:bg-main-blue/30 text-white z-0">
@@ -64,12 +67,12 @@ export const Preview = ({
               <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black/20 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
             </div>
           )}
-          <div className="w-full relative h-full">
+          <div className="relative ">
             <h1
               style={{ fontSize: `${watch("fontSize")}rem` }}
               className={twMerge(
                 clsx(
-                  "mt-4 w-full z-10 leading-[3rem]",
+                  "mt-2 z-10 leading-[3rem] text-pretty break-words truncate  overflow-hidden w-full",
                   {
                     "text-left justify-start": alignment === "left",
                     "text-right justify-end": alignment === "right",
@@ -98,7 +101,7 @@ export const Preview = ({
               }}
               className={twMerge(
                 clsx(
-                  "text-sm w-full leading-snug flex flex-col ",
+                  "text-sm w-full max-w-full overflow-hidden break-words leading-snug flex flex-col",
                   {
                     "text-left justify-start items-left":
                       descriptionAlignment === "left",
@@ -114,21 +117,15 @@ export const Preview = ({
                     "text-pink-600": descriptionColor === "deeppink",
                     "text-indigo-500": descriptionColor === "indigo",
                     "text-orange-600": descriptionColor === "darkorange",
-                    "text-white ": descriptionColor === "whitesmoke",
+                    "text-white": descriptionColor === "whitesmoke",
                     "text-black": !descriptionColor,
                   }
                 )
               )}
             >
               {watch("description")}
-              {/* <span className="text-sm">
-                      {Array.isArray(watch("skills"))
-                        ? watch("skills").join(" ")
-                        : typeof watch("skills") === "string"
-                        ? watch("skills")
-                        : "No skills listed"}
-                    </span> */}
-              <span className="inline-flex gap-3 my-4">
+
+              <span className="inline-flex gap-3 my-4 flex-wrap">
                 {watch("tools")?.map(
                   (IconComponent: JSX.Element[], index: number) => (
                     <span key={index} className="w-8 h-8 text-main-blue">

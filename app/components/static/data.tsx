@@ -45,18 +45,19 @@ export interface Profession {
 }
 export const bannerSizes = [
   {
-    name:"aspect-facebook-cover",
+    name: "aspect-facebook-cover",
   }, // Facebook Cover Photo
-  { name:"aspect-twitter-cover" }, // Twitter Cover Photo
-  { name:"aspect-instagram-square"}, // Instagram Square Post
-  { name:"aspect-instagram-portrait" }, // Instagram Portrait Post
-  { name:"aspect-instagram-story"}, // Instagram Story
-  { name:"aspect-youtube-thumbnail" }, // YouTube Thumbnail
-  { name:"aspect-linkedin-cover" }, // LinkedIn Cover Photo
+  { name: "aspect-twitter-cover" }, // Twitter Cover Photo
+  { name: "aspect-instagram-square" }, // Instagram Square Post
+  { name: "aspect-instagram-portrait" }, // Instagram Portrait Post
+  { name: "aspect-instagram-story" }, // Instagram Story
+  { name: "aspect-youtube-thumbnail" }, // YouTube Thumbnail
+  { name: "aspect-linkedin-cover" }, // LinkedIn Cover Photo
   {
-    name:"aspect-pinterest-pin", // Pinterest Pin
+    name: "aspect-pinterest-pin", // Pinterest Pin
   },
 ];
+
 
 export const PROFESSIONS: Profession[] = [
   {
