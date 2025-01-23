@@ -13,6 +13,8 @@ export const StepOne = ({ control, register }: StepProps) => {
           className="border rounded-lg w-full p-3 outline-main-blue text-neutral-600 my-3"
           placeholder="Enter your name"
           {...register("BrandName")}
+          
+          
         />
       </div>
       <div>
@@ -44,7 +46,8 @@ export const StepOne = ({ control, register }: StepProps) => {
       </div>
       <div className="mt-4">
         <label className="text-xs font-semibold">Text Color</label>
-        <Controller
+        <input {...register("color")} type="color" className="w-full h-12 rounded-sm" />
+        {/* <Controller
           name="color"
           control={control}
           render={({ field }) => (
@@ -75,7 +78,7 @@ export const StepOne = ({ control, register }: StepProps) => {
               ))}
             </div>
           )}
-        />
+        /> */}
       </div>
       <div className="">
         <div className="relative my-6">

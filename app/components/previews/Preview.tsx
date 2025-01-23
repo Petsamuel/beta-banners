@@ -25,11 +25,13 @@ export const Preview = ({
   color,
   descriptionAlignment,
   descriptionColor,
-}: // bannerPreview,
-// bannerPreview,
+  bannerPreview
+}: 
+
 PreviewProps) => {
+  
   return (
-    <div className={clsx("flex relative justify-center overflow-hidden")}>
+    <div className={clsx("flex relative justify-center overflow-hidden w-full")}>
       {/* preview */}
       <div
         id="banner-preview"
@@ -64,29 +66,10 @@ PreviewProps) => {
               <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black/20 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
             </div>
           )}
-          <div className="relative ">
+          <div className={`w-full`}>
             <h1
-              style={{ fontSize: `${watch("fontSize")}rem` }}
-              className={twMerge(
-                clsx(
-                  "mt-2 z-10 leading-[3rem] text-pretty break-words truncate  overflow-hidden w-full",
-                  {
-                    "text-left justify-start": alignment === "left",
-                    "text-right justify-end": alignment === "right",
-                    "text-center justify-center":
-                      !alignment || alignment === "center",
-                  },
-                  {
-                    "text-sky-500": color === "skyblue",
-                    "text-yellow-500": color === "yellow",
-                    "text-pink-600": color === "deeppink",
-                    "text-indigo-500": color === "indigo",
-                    "text-orange-600": color === "darkorange",
-                    "text-white": color === "whitesmoke",
-                    "text-black": !color,
-                  }
-                )
-              )}
+              style={{ fontSize: `${watch("fontSize")}rem`, color:`${color}` }}
+              className="w-fit text-pretty"
             >
               {watch("BrandName")}
             </h1>
@@ -95,6 +78,7 @@ PreviewProps) => {
               style={{
                 fontSize: `${watch("descriptionSize")}rem`,
                 marginTop: `${watch("fontHeight")}rem`,
+                
               }}
               className={twMerge(
                 clsx(

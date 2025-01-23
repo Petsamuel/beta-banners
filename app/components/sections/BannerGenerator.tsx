@@ -103,7 +103,7 @@ export default function BannerGenerator() {
         <Modal
           handleEvent={() => setModalState(!modalState)}
           data={data}
-          className={` max-2xl flex-col flex gap-4 w-fit`}
+          className={`flex-col flex gap-4 w-fit`}
         >
           <Preview
             gradientStyles={gradientStyles}
@@ -128,7 +128,7 @@ export default function BannerGenerator() {
         <div className="grid grid-cols-3 gap-6 ">
           <div
             className={clsx(
-              "flex relative overflow-hidden col-span-2 justify-center items-center w-[20rem] h-full"
+              "flex relative overflow-hidden col-span-2 justify-center items-center w-full h-full"
             )}
           >
             <Preview
