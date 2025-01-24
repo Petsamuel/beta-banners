@@ -4,7 +4,9 @@ import { StepProps } from "../../types/useType";
 
 export const StepOne = ({ control, register }: StepProps) => {
   return (
-    <section className="font-[montserrat] border-2 p-4 shadow-lg mb-4 rounded-lg ">
+    <section className="
+    lg:h-[40rem] 
+    font-[montserrat] border-2 p-4 shadow-lg mb-4 rounded-lg ">
       <legend className="font-semibold">Brand Information</legend>
       <div>
         <label className="text-xs  text-black font-semibold">Brand Name</label>

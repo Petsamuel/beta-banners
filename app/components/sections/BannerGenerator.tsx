@@ -128,7 +128,7 @@ export default function BannerGenerator() {
         <div className="grid grid-cols-3 gap-6 ">
           <div
             className={clsx(
-              "flex relative overflow-hidden col-span-2 justify-center items-center w-full h-full"
+              "flex relative overflow-hidden justify-center items-center col-span-2 h-full"
             )}
           >
             <Preview
@@ -144,7 +144,7 @@ export default function BannerGenerator() {
             />
           </div>
           <form
-            className=" col-span-1"
+            className="w-[25rem]"
             onSubmit={handleSubmit(
               (data) => {
                 setdata(data);

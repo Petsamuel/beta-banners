@@ -5,11 +5,9 @@ import { StepProps } from "../../types/useType";
 export const StepTwo = ({ control, register }: StepProps) => {
   return (
     <div className="font-[montserrat] border-2 p-4 shadow-lg mb-4 rounded-lg">
-      <legend className="font-semibold">Brand Description</legend>
+      <legend className=" font-semibold">Brand Description</legend>
       <div>
-        <label className="text-sm text-black font-semibold">
-          Description
-        </label>
+        <label className="text-xs text-black font-semibold">Description</label>
         <input
           type="text"
           className="border rounded-lg w-full p-3 outline-main-blue text-neutral-600 my-3"
