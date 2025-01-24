@@ -25,6 +25,11 @@ const michroma = Michroma({
 export const metadata: Metadata = {
   title: "Better Banners",
   description: "Generate Banners for your social media",
+  openGraph: {
+    images: [{
+      url: "https://betterbanners.vercel.app/api/og",
+    }]
+  }
 };
 
 export default function RootLayout({

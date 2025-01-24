@@ -21,17 +21,16 @@ export const Preview = ({
   selectedGradientTypes,
   patternList,
   watch,
-  alignment,
+  // alignment,
   color,
   descriptionAlignment,
   descriptionColor,
-  bannerPreview
-}: 
-
+}: // bannerPreview
 PreviewProps) => {
-  
   return (
-    <div className={clsx("flex relative justify-center overflow-hidden w-full")}>
+    <div
+      className={clsx("flex relative justify-center overflow-hidden w-full")}
+    >
       {/* preview */}
       <div
         id="banner-preview"
@@ -68,7 +67,7 @@ PreviewProps) => {
           )}
           <div className={`w-full`}>
             <h1
-              style={{ fontSize: `${watch("fontSize")}rem`, color:`${color}` }}
+              style={{ fontSize: `${watch("fontSize")}rem`, color: `${color}` }}
               className="w-fit text-pretty"
             >
               {watch("BrandName")}
@@ -78,7 +77,7 @@ PreviewProps) => {
               style={{
                 fontSize: `${watch("descriptionSize")}rem`,
                 marginTop: `${watch("fontHeight")}rem`,
-                
+                color: `${descriptionColor}`,
               }}
               className={twMerge(
                 clsx(
@@ -91,16 +90,7 @@ PreviewProps) => {
                     "text-center justify-center items-center":
                       !descriptionAlignment ||
                       descriptionAlignment === "center",
-                  },
-                  {
-                    "text-sky-500": descriptionColor === "skyblue",
-                    "text-yellow-500": descriptionColor === "yellow",
-                    "text-pink-600": descriptionColor === "deeppink",
-                    "text-indigo-500": descriptionColor === "indigo",
-                    "text-orange-600": descriptionColor === "darkorange",
-                    "text-white": descriptionColor === "whitesmoke",
-                    "text-black": !descriptionColor,
-                  }
+                  } 
                 )
               )}
             >

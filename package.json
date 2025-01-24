@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@next/swc-win32-x64-msvc": "^15.1.4",
+    "@vercel/og": "^0.6.5",
     "clsx": "^2.1.1",
     "html-to-image": "^1.11.11",
     "mini-svg-data-uri": "^1.4.4",
