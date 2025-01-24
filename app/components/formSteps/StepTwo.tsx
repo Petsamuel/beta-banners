@@ -5,9 +5,10 @@ import { StepProps } from "../../types/useType";
 export const StepTwo = ({ control, register }: StepProps) => {
   return (
     <div className="font-[montserrat] border-2 p-4 shadow-lg mb-4 rounded-lg">
+      <legend className="font-semibold">Brand Description</legend>
       <div>
-        <label className="text-xs  text-black font-semibold">
-          Description &nbsp;(optional)
+        <label className="text-sm text-black font-semibold">
+          Description
         </label>
         <input
           type="text"
@@ -51,7 +52,7 @@ export const StepTwo = ({ control, register }: StepProps) => {
       </div>
       <div className="mt-4">
         <label className="text-xs  font-semibold">Text Color</label>
-        
+
         <input
           {...register("descriptionColor")}
           type="color"

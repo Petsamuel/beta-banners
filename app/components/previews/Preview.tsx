@@ -29,7 +29,7 @@ export const Preview = ({
 PreviewProps) => {
   return (
     <div
-      className={clsx("flex relative justify-center overflow-hidden w-full")}
+      className={clsx("flex relative justify-center overflow-hidden w-full ")}
     >
       {/* preview */}
       <div
@@ -38,7 +38,7 @@ PreviewProps) => {
           background: gradientStyles[selectedGradientTypes],
         }}
         className={clsx(
-          "bg-white  text-black p-8 rounded border dark:border-none dark:bg-gray-50 shadow-lg relative "
+          "bg-white  text-black p-8 rounded-xl border dark:border-none dark:bg-gray-50 shadow-lg relative "
         )}
       >
         <span className="absolute -left-5 top-2 px-4 font-[montserrat] text-sm -rotate-45 bg-main-blue dark:bg-main-blue/30 text-white z-0">
@@ -49,7 +49,7 @@ PreviewProps) => {
           className={` flex flex-col mt-4 text-4xl font-black capitalize text-balance  text-black z-10 justify-center items-center`}
         >
           {patternList && (
-            <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
+            <div className="absolute inset-0 pointer-events-none flex items-center justify-center ">
               {(Array.isArray(patternList) ? patternList : [patternList]).map(
                 (patternClass, index) => (
                   <div
@@ -62,10 +62,10 @@ PreviewProps) => {
                 )
               )}
 
-              <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black/20 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
+              <div className="absolute z-0 pointer-events-none inset-0 flex items-center justify-center dark:bg-black/20 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
             </div>
           )}
-          <div className={`w-full`}>
+          <div className={` z-10`}>
             <h1
               style={{ fontSize: `${watch("fontSize")}rem`, color: `${color}` }}
               className="w-fit text-pretty"
@@ -90,7 +90,7 @@ PreviewProps) => {
                     "text-center justify-center items-center":
                       !descriptionAlignment ||
                       descriptionAlignment === "center",
-                  } 
+                  }
                 )
               )}
             >
