@@ -2,7 +2,8 @@
 import React from "react";
 import { Controller } from "react-hook-form";
 import { StepProps } from "../../types/useType";
-
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 export const StepFour = ({ control, register }: StepProps) => {
   const BackgroundGradientType = [
     "",
@@ -25,19 +26,19 @@ export const StepFour = ({ control, register }: StepProps) => {
     "bg-crosshatch-black",
   ];
   return (
-    <div className="">
+    <div className="  font-[montserrat] border-2 p-4 shadow-lg mb-4 rounded-lg ">
       <div className="flex gap-5 w-full justify-between">
-        <p>Custom Design</p>
+        <p>BackGround Design</p>
       </div>
 
       <div>
         {/* Background Color */}
         <div>
           {/* Background Gradient Type */}
-          <div>
+          <div className="mt-8">
             <label
               htmlFor="selectedGradientType"
-              className="text-sm font-semibold"
+              className="text-xs font-semibold"
             >
               Background Gradient Type
             </label>
@@ -55,7 +56,7 @@ export const StepFour = ({ control, register }: StepProps) => {
 
           {/* Gradient Color Picker */}
           <div className="flex flex-col gap-2 mt-4 w-full">
-            <label className="text-sm font-semibold">
+            <label className="text-xs  mt-8 font-semibold">
               {" "}
               Gradient Color Picker
             </label>
@@ -81,7 +82,7 @@ export const StepFour = ({ control, register }: StepProps) => {
             </div>
           </div>
           {/* background pattern */}
-          <div>
+          <div className="my-6">
             <label className="text-xs  mt-8 font-semibold">
               Background Pattern
             </label>
@@ -90,33 +91,33 @@ export const StepFour = ({ control, register }: StepProps) => {
                 name="patterns"
                 control={control}
                 render={({ field }) => (
-                  <div className="flex gap-2 flex-wrap">
-                    {PatternType.map((patterns, index) => (
-                      <button
-                        {...register("patterns")}
-                        key={index}
-                        type="button"
-                        className={`p-2 ${
-                          (field.value || []).includes(patterns)
-                            ? "bg-main-blue text-white"
-                            : "bg-main-blue/10 hover:bg-main-blue/20"
-                        } text-gray-700 rounded-md text-xs border-white w-auto px-4 capitalize`}
-                        onClick={() => {
-                          const currentValue = field.value || [];
-                          const updatedPatterns = currentValue.includes(
-                            patterns
-                          )
-                            ? currentValue.filter(
-                                (item: string) => item !== patterns
-                              )
-                            : [...currentValue, patterns];
-                          field.onChange(updatedPatterns);
-                        }}
-                      >
-                        {patterns}
-                      </button>
-                    ))}
-                  </div>
+                  <Swiper
+                    spaceBetween={10}
+                    slidesPerView="auto"
+                    className="w-full"
+                  >
+                    <div className="flex gap-2 ">
+                      {PatternType.map((patterns, index) => (
+                        <SwiperSlide key={index} className="!w-auto">
+                          <button
+                            {...register("patterns")}
+                            key={index}
+                            type="button"
+                            className={`p-2 ${
+                              (field.value || []).includes(patterns)
+                                ? "bg-main-blue text-white"
+                                : "bg-main-blue/10 hover:bg-main-blue/20"
+                            } text-gray-700 rounded-md text-xs border-white w-auto px-4 capitalize`}
+                            onClick={() => {
+                              field.onChange(patterns);
+                            }}
+                          >
+                            {patterns}
+                          </button>
+                        </SwiperSlide>
+                      ))}
+                    </div>
+                  </Swiper>
                 )}
               />
             </div>

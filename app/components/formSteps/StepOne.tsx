@@ -4,9 +4,11 @@ import { StepProps } from "../../types/useType";
 
 export const StepOne = ({ control, register }: StepProps) => {
   return (
-    <section className="
-    lg:h-[40rem] 
-    font-[montserrat] border-2 p-4 shadow-lg mb-4 rounded-lg ">
+    <section
+      className="
+     
+    font-[montserrat] border-2 p-4 shadow-lg mb-4 rounded-lg "
+    >
       <legend className="font-semibold">Brand Information</legend>
       <div>
         <label className="text-xs  text-black font-semibold">Brand Name</label>
@@ -51,38 +53,7 @@ export const StepOne = ({ control, register }: StepProps) => {
           type="color"
           className="w-full h-12 rounded-sm"
         />
-        {/* <Controller
-          name="color"
-          control={control}
-          render={({ field }) => (
-            <div className="flex gap-8 ">
-              {[
-                "skyblue",
-                "yellow",
-                "deeppink",
-                "indigo",
-                "darkorange",
-                "black",
-                "whitesmoke",
-              ].map((item, index) => (
-                <div
-                  {...register("color")}
-                  key={index}
-                  type="button"
-                  className={`p-2 my-3 lg:rounded-full rounded-lg h-10 w-10  text-white text-[10px] border-white cursor-pointer`}
-                  onClick={() => field.onChange(item)}
-                  style={{ backgroundColor: item }}
-                >
-                  {field.value === item && (
-                    <span className="text-white inline-flex font-bold text-xl justify-center items-center ">
-                      ✔
-                    </span>
-                  )}
-                </div>
-              ))}
-            </div>
-          )}
-        /> */}
+        
       </div>
       <div className="">
         <div className="relative my-6">
@@ -96,7 +67,7 @@ export const StepOne = ({ control, register }: StepProps) => {
               {...register("fontSize")}
               type="range"
               min="1"
-              max="5"
+              max="3"
               step="0.1"
               className="w-full  h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer my-3"
             />

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-import React, { JSX } from "react";
+import React, { JSX, useState } from "react";
 import clsx from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -21,24 +21,39 @@ export const Preview = ({
   selectedGradientTypes,
   patternList,
   watch,
-  // alignment,
+  alignment,
   color,
   descriptionAlignment,
   descriptionColor,
 }: // bannerPreview
 PreviewProps) => {
+  type BannerSizeType = "twitter" | "facebook" | "youtube";
+  const [bannerSize] = useState<BannerSizeType>("twitter");
+
+  const bannerDimensions = {
+    twitter: { width: 1500, height: 500, aspectRatio: "3 / 1" },
+    facebook: { width: 820, height: 312, aspectRatio: "2.63 / 1" },
+    youtube: { width: 2560, height: 1440, aspectRatio: "16 / 9" },
+  };
+
+  const selectedBanner = bannerDimensions[bannerSize];
   return (
     <div
-      className={clsx("flex relative justify-center overflow-hidden w-full ")}
+      className={clsx(
+        "flex flex-col relative justify-center overflow-hidden w-full"
+      )}
     >
       {/* preview */}
       <div
         id="banner-preview"
         style={{
           background: gradientStyles[selectedGradientTypes],
+          width: "100%",
+          aspectRatio: selectedBanner.aspectRatio,
+          maxWidth: `${selectedBanner.width}px`,
         }}
         className={clsx(
-          "bg-white  text-black p-8 rounded-xl border dark:border-none dark:bg-gray-50 shadow-lg relative "
+          "bg-white text-black p-8 rounded-xl border dark:border-none dark:bg-gray-50 shadow-lg relative overflow-hidden"
         )}
       >
         <span className="absolute -left-5 top-2 px-4 font-[montserrat] text-sm -rotate-45 bg-main-blue dark:bg-main-blue/30 text-white z-0">
@@ -65,10 +80,20 @@ PreviewProps) => {
               <div className="absolute z-0 pointer-events-none inset-0 flex items-center justify-center dark:bg-black/20 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
             </div>
           )}
-          <div className={` z-10`}>
+          <div className={` z-10 w-full`}>
             <h1
               style={{ fontSize: `${watch("fontSize")}rem`, color: `${color}` }}
-              className="w-fit text-pretty"
+              className={twMerge(
+                clsx(
+                  "text-pretty overflow-hidden leading-snug flex flex-col h-full",
+                  {
+                    "text-left justify-start items-left": alignment === "left",
+                    "text-right justify-end items-right": alignment === "right",
+                    "text-center justify-center items-center":
+                      !alignment || alignment === "center",
+                  }
+                )
+              )}
             >
               {watch("BrandName")}
             </h1>
@@ -81,7 +106,7 @@ PreviewProps) => {
               }}
               className={twMerge(
                 clsx(
-                  "text-sm w-full max-w-full overflow-hidden break-words leading-snug flex flex-col",
+                  "text-sm w-full  overflow-hidden break-words leading-snug flex flex-col",
                   {
                     "text-left justify-start items-left":
                       descriptionAlignment === "left",
@@ -96,10 +121,19 @@ PreviewProps) => {
             >
               {watch("description")}
 
-              <span className="inline-flex gap-3 my-4 flex-wrap">
+              <span
+                className={clsx("flex gap-3 my-4 flex-wrap w-full", {
+                  "text-left justify-start items-left":
+                    descriptionAlignment === "left",
+                  "text-right justify-end items-right":
+                    descriptionAlignment === "right",
+                  "text-center justify-center items-center":
+                    !descriptionAlignment || descriptionAlignment === "center",
+                })}
+              >
                 {watch("tools")?.map(
                   (IconComponent: JSX.Element[], index: number) => (
-                    <span key={index} className="w-8 h-8 text-main-blue">
+                    <span key={index} className={"w-8 h-8 text-main-blue"}>
                       {IconComponent}
                     </span>
                   )
@@ -110,7 +144,19 @@ PreviewProps) => {
         </div>
       </div>
 
-      <div>{/* TODO: banner-size  */}</div>
+      <div className="justify-center items-center flex gap-3 mt-4">
+        {/* TODO: banner-size  */}
+        <div className="flex ">
+          {["Twitter", "LinkedIn", "Facebook"].map((val, index) => (
+            <small className="gap-x-4 flex mx-4 flex-row" key={index}>
+              <label htmlFor="bannersize" className={`flex `}>
+                <input type="radio" name="bannersize" className="px-3 flex" />
+                {val}
+              </label>
+            </small>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

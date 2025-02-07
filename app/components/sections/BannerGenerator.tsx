@@ -6,7 +6,7 @@ import { StepOne } from "../formSteps/StepOne";
 import { StepTwo } from "../formSteps/StepTwo";
 import { StepThree } from "../formSteps/StepThree";
 // import { bannerSizes } from "../static/data";
-import clsx from "clsx";
+// import clsx from "clsx";
 import { Modal } from "../Modal";
 import { StepFour } from "../formSteps/StepFour";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -31,7 +31,7 @@ export default function BannerGenerator() {
       description: "Description",
       descriptionSize: 2,
       descriptionAlignment: "center",
-      descriptionColor: "#ffffff",
+      descriptionColor: "#000000",
       skills: ["Design"],
       colorStart: "",
       colorEnd: "",
@@ -124,12 +124,12 @@ export default function BannerGenerator() {
           />
         </Modal>
       )}
-      <section className="h-[101svh] flex flex-col gap-1 items-center justify-center snap-start  relative lg:px-8 px-4 ">
-        <div className="grid grid-cols-3 gap-6 ">
+      <section className="h-[101svh] flex flex-col gap-1 items-center justify-center snap-start  relative lg:px-8  ">
+        <div className="lg:grid lg:grid-cols-3 gap-6 mx-2 lg:mx-0">
           <div
-            className={clsx(
-              "flex relative overflow-hidden justify-center items-center col-span-2 h-full"
-            )}
+            className={
+              "flex relative overflow-hidden justify-center items-center lg:col-span-2  lg:h-full  px-4 mb-4"
+            }
           >
             <Preview
               gradientStyles={gradientStyles}
@@ -143,8 +143,9 @@ export default function BannerGenerator() {
               bannerPreview={watch("selectedBanner")}
             />
           </div>
+
           <form
-            className="w-[25rem]"
+            className="w-[24rem] px-4 lg:px-0 flex justify-center items-center"
             onSubmit={handleSubmit(
               (data) => {
                 setdata(data);
@@ -160,6 +161,7 @@ export default function BannerGenerator() {
               modules={[Pagination, Navigation]}
               spaceBetween={30}
               slidesPerView={1}
+              allowTouchMove={false} 
               pagination={{
                 type: "progressbar",
                 el: ".swiper-pagination",
