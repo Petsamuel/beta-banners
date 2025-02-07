@@ -28,7 +28,7 @@ export const StepThree = ({ control, register, watch }: StepProps) => {
   };
 
   return (
-    <div className="overflow-y-auto font-[montserrat] border-2 p-4 shadow-lg mb-4 rounded-lg">
+    <div className="overflow-y-auto font-[montserrat] p-2 mb-4 ">
       <div className="flex flex-col gap-2 my-3">
         <label className="text-xs  mt-8 font-semibold">
           Profession Category

@@ -124,80 +124,84 @@ export default function BannerGenerator() {
           />
         </Modal>
       )}
-      <section className="h-[101svh] flex flex-col gap-1 items-center justify-center snap-start  relative lg:px-8  ">
-        <div className="lg:grid lg:grid-cols-3 gap-6 mx-2 lg:mx-0">
-          <div
-            className={
-              "flex relative overflow-hidden justify-center items-center lg:col-span-2  lg:h-full  px-4 mb-4"
-            }
-          >
-            <Preview
-              gradientStyles={gradientStyles}
-              selectedGradientTypes={selectedGradientTypes}
-              patternList={patternList}
-              watch={watch}
-              color={color}
-              descriptionColor={descriptionColor}
-              alignment={alignment}
-              descriptionAlignment={descriptionAlignment}
-              bannerPreview={watch("selectedBanner")}
-            />
-          </div>
 
-          <form
-            className="w-[24rem] px-4 lg:px-0 flex justify-center items-center"
-            onSubmit={handleSubmit(
-              (data) => {
-                setdata(data);
-                setModalState(!modalState);
-              },
-              (error) => {
-                console.log(error);
+      <section className="h-[101svh] flex flex-col gap-1 snap-start  relative">
+        <div className="flex flex-row">
+          <div className=" h-[101svh] flex-grow">
+            <div
+              className={
+                "px-4 flex flex-col items-center  h-full justify-center"
               }
-            )}
-          >
-            <Swiper
-              className="relative z-10 "
-              modules={[Pagination, Navigation]}
-              spaceBetween={30}
-              slidesPerView={1}
-              allowTouchMove={false} 
-              pagination={{
-                type: "progressbar",
-                el: ".swiper-pagination",
-              }}
-              onSwiper={(swiper: any) => setSwiper(swiper)}
-              onSlideChange={(s) => setCurrentStep(s.activeIndex)}
             >
-              <div className="relative">
-                <SwiperSlide>
-                  <div className="">
-                    <StepOne control={control} register={register} />
+              <Preview
+                gradientStyles={gradientStyles}
+                selectedGradientTypes={selectedGradientTypes}
+                patternList={patternList}
+                watch={watch}
+                color={color}
+                descriptionColor={descriptionColor}
+                alignment={alignment}
+                descriptionAlignment={descriptionAlignment}
+                bannerPreview={watch("selectedBanner")}
+              />
+            </div>
+          </div>
+          <div className="bg-gray-50 backdrop-blur-3xl h-[101svh] w-[30dvw] shadow-xl rounded-bl-2xl">
+            <div className="backdrop-blur-3xl w-full h-full p-4">
+              <form
+                className=" px-2 lg:px-0 flex justify-center items-center mt-4"
+                onSubmit={handleSubmit(
+                  (data) => {
+                    setdata(data);
+                    setModalState(!modalState);
+                  },
+                  (error) => {
+                    console.log(error);
+                  }
+                )}
+              >
+                <Swiper
+                  className="relative z-10 "
+                  modules={[Pagination, Navigation]}
+                  spaceBetween={30}
+                  slidesPerView={1}
+                  allowTouchMove={false}
+                  pagination={{
+                    type: "progressbar",
+                    el: ".swiper-pagination",
+                  }}
+                  onSwiper={(swiper: any) => setSwiper(swiper)}
+                  onSlideChange={(s) => setCurrentStep(s.activeIndex)}
+                >
+                  <div className="relative">
+                    <SwiperSlide>
+                      <div className="">
+                        <StepOne control={control} register={register} />
+                      </div>
+                    </SwiperSlide>
+
+                    <SwiperSlide>
+                      <StepTwo control={control} register={register} />
+                    </SwiperSlide>
+
+                    <SwiperSlide>
+                      <StepThree
+                        control={control}
+                        register={register}
+                        watch={watch}
+                      />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <StepFour control={control} register={register} />
+                    </SwiperSlide>
                   </div>
-                </SwiperSlide>
 
-                <SwiperSlide>
-                  <StepTwo control={control} register={register} />
-                </SwiperSlide>
-
-                <SwiperSlide>
-                  <StepThree
-                    control={control}
-                    register={register}
-                    watch={watch}
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <StepFour control={control} register={register} />
-                </SwiperSlide>
-              </div>
-
-              <div className="flex justify-between px-4 z-20 w-full">
-                <div>
-                  <Button
-                    type="button"
-                    text="Back"
-                    className={`
+                  <div className="flex justify-between px-4 z-20 w-full">
+                    <div>
+                      <Button
+                        type="button"
+                        text="Back"
+                        className={`
             px-6 py-2 rounded-md transition-all
             ${
               currentStep === 0
@@ -205,31 +209,35 @@ export default function BannerGenerator() {
                 : "bg-white text-main-blue border-2 border-main-blue hover:bg-main-blue/10 hover:cursor-pointer"
             }
           `}
-                    handleClick={handlePrev}
-                    disabled={currentStep === 0}
-                  />
-                </div>
+                        handleClick={handlePrev}
+                        disabled={currentStep === 0}
+                      />
+                    </div>
 
-                <div>
-                  {currentStep === totalSteps - 1 ? (
-                    <Button
-                      type="submit"
-                      className={`px-6 py-2 bg-main-blue text-white rounded-md hover:bg-main-blue/90 transition-all hover:cursor-pointer cursor-pointer`}
-                      text="Generate Banner"
-                    />
-                  ) : (
-                    <Button
-                      type="button"
-                      handleClick={handleNext}
-                      className={`px-6 py-2 bg-main-blue text-white rounded-md hover:bg-main-blue/90 hover:cursor-pointer transition-all cursor-pointer`}
-                      text="Next"
-                    />
-                  )}
-                </div>
-              </div>
-            </Swiper>
-            <div className="swiper-pagination" />
-          </form>
+                    <div>
+                      {currentStep === totalSteps - 1 ? (
+                        <Button
+                          type="submit"
+                          className={`px-6 py-2 bg-main-blue text-white rounded-md hover:bg-main-blue/90 transition-all hover:cursor-pointer cursor-pointer`}
+                          text="Generate Banner"
+                        />
+                      ) : (
+                        <Button
+                          type="button"
+                          handleClick={handleNext}
+                          className={`px-6 py-2 bg-main-blue text-white rounded-md hover:bg-main-blue/90 hover:cursor-pointer transition-all cursor-pointer`}
+                          text="Next"
+                        />
+                      )}
+                    </div>
+                  </div>
+                </Swiper>
+                <div className="swiper-pagination" />
+              </form>
+            </div>
+
+            {/* - - - - - - - - - - - - - - - - - - - - */}
+          </div>
         </div>
       </section>
     </>

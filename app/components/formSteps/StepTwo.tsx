@@ -6,7 +6,7 @@ import { useState } from "react";
 export const StepTwo = ({ control, register }: StepProps) => {
   const [fontProps, setFontProps] = useState<string>("");
   return (
-    <div className="font-[montserrat] border-2 p-4 shadow-lg mb-4 rounded-lg">
+    <div className=" p-2  mb-4 ">
       <legend className=" font-semibold">Brand Description</legend>
       <div>
         <label className="text-xs text-black font-semibold">Description</label>

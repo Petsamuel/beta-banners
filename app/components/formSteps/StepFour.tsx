@@ -26,7 +26,7 @@ export const StepFour = ({ control, register }: StepProps) => {
     "bg-crosshatch-black",
   ];
   return (
-    <div className="  font-[montserrat] border-2 p-4 shadow-lg mb-4 rounded-lg ">
+    <div className="  font-[montserrat]  p-4  mb-4  ">
       <div className="flex gap-5 w-full justify-between">
         <p>BackGround Design</p>
       </div>
