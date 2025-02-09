@@ -30,42 +30,38 @@ export const StepThree = ({ control, register, watch }: StepProps) => {
   return (
     <div className="overflow-y-auto font-[montserrat] p-2 mb-4 ">
       <div className="flex flex-col gap-2 my-3">
-        <label className="text-xs  mt-8 font-semibold">
-          Profession Category
-        </label>
-        <div className="flex gap-2 my-3">
+        <legend className="font-semibold text-center justify-center">
+          Brand Categories
+        </legend>
+        <div className="my-3">
+          <p className="text-xs  text-black font-semibold py-3">Categories</p>
+          <div className=" border-b-2 w-full my-3" />
           <Controller
             name="skills"
             defaultValue={["Design"]}
             control={control}
             render={({ field }) => (
-              <div className="flex gap-2 flex-wrap">
+              <select
+                {...register("skills")}
+                className="p-2 bg-main-blue/10 hover:bg-main-blue/20 text-gray-700 text-xs border-white w-full capitalize"
+                onChange={(e) => {
+                  const selectedOptions = Array.from(
+                    e.target.selectedOptions,
+                    (option) => option.value
+                  );
+                  field.onChange(selectedOptions);
+                }}
+              >
                 {PROFESSION_CATEGORIES.map((skill, index) => (
-                  <button
-                    {...register("skills")}
+                  <option
                     key={index}
-                    type="button"
-                    className={`p-2 ${
-                      (field.value || []).includes(skill)
-                        ? "bg-main-blue text-white"
-                        : "bg-main-blue/10 hover:bg-main-blue/20"
-                    } text-gray-700 rounded-md text-xs border-white w-auto px-4 capitalize`}
-                    onClick={() => {
-                      const currentValue = field.value || [];
-                      const updatedSkills = currentValue.includes(skill)
-                        ? currentValue.length > 1
-                          ? currentValue.filter(
-                              (item: string) => item !== skill
-                            )
-                          : currentValue
-                        : [...currentValue, skill];
-                      field.onChange(updatedSkills);
-                    }}
+                    value={skill}
+                    selected={(field.value || []).includes(skill)}
                   >
                     {skill}
-                  </button>
+                  </option>
                 ))}
-              </div>
+              </select>
             )}
           />
         </div>
@@ -137,14 +133,20 @@ export const StepThree = ({ control, register, watch }: StepProps) => {
           />
         </div>
       </div>
+      <div className="my-2">
+        <p className="  text-black font-semibold my-3 text-sm">Styles</p>
+        <div className=" border-b-2 w-full my-3" />
+      </div>
 
-      <div>
-        <label className="text-xs  mt-8 font-semibold">Icon Color</label>
-        <input
-          {...register("iconColor")}
-          type="color"
-          className="w-full h-12 rounded-sm"
-        />
+      <div className="flex justify-between items-center">
+        <p className="text-xs  mt-8 font-semibold">Color</p>
+        <div>
+          <input
+            {...register("iconColor")}
+            type="color"
+            className="w-[5rem] h-10 rounded-sm"
+          />
+        </div>
       </div>
       <div>
         <div className="relative my-6">

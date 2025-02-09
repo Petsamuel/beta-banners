@@ -1,18 +1,23 @@
 "use client";
 import { Controller } from "react-hook-form";
 import { StepProps } from "../../types/useType";
-import { useState } from "react";
+// import { useState } from "react";
+import { AlignmentIcon } from "./StepOne";
+import { TextStyle } from "./StepOne";
 
 export const StepTwo = ({ control, register }: StepProps) => {
-  const [fontProps, setFontProps] = useState<string>("");
+  // const [fontProps, setFontProps] = useState<string>("");
   return (
-    <div className=" p-2  mb-4 ">
-      <legend className=" font-semibold">Brand Description</legend>
+    <div className="p-4 font-[montserrat] ">
+      <legend className=" font-semibold text-center justify-center">
+        Brand Description
+      </legend>
       <div>
         <label className="text-xs text-black font-semibold">Description</label>
+        <div className=" border-b-2 w-full my-3" />
         <input
           type="text"
-          className="border rounded-lg w-full p-3 outline-main-blue text-neutral-600 my-3"
+          className="border rounded-sm w-full p-2  text-neutral-600 my-2 focus:ring-none focus:outline-none text-sm"
           placeholder="Description"
           defaultValue=""
           {...register("description", {
@@ -21,28 +26,34 @@ export const StepTwo = ({ control, register }: StepProps) => {
           })}
         />
       </div>
-      <div>
+      <div className="my-2">
+        <p className="  text-black font-semibold my-3 text-sm">Styles</p>
+        <div className=" border-b-2 w-full my-3" />
+      </div>
+      <div className="flex justify-between items-cente">
         {/* placement */}
-        <label className="text-xs  mt-8 font-semibold">
-          Description Position
-        </label>
-        <div className="flex gap-2 ">
+        <p className="text-xs  mt-8 font-semibold flex items-start">
+          Alignment
+        </p>
+        <div className="flex gap-2 my-3 items-center">
           <Controller
             name="descriptionAlignment"
             control={control}
             render={({ field }) => (
-              <div className="flex gap-2">
-                {["left", "center", "right"].map((item, index) => (
+              <div className="flex gap-2 items-center justify-center">
+                {AlignmentIcon.map((item, index) => (
                   <button
                     {...register("descriptionAlignment")}
                     key={index}
                     type="button"
                     className={`p-2 ${
-                      field.value === item ? "bg-main-blue" : "bg-main-blue/30"
-                    } text-white rounded-md text-xs border-white w-[5rem] capitalize`}
-                    onClick={() => field.onChange(item)}
+                      field.value === item.name
+                        ? "bg-main-blue"
+                        : "bg-main-blue/30"
+                    } text-white rounded-md text-sm border-white capitalize`}
+                    onClick={() => field.onChange(item.name)}
                   >
-                    {item}
+                    {item.icon}
                   </button>
                 ))}
               </div>
@@ -50,64 +61,70 @@ export const StepTwo = ({ control, register }: StepProps) => {
           />
         </div>
       </div>
-      <div className="mt-4 w-full">
-        <label className="text-xs  font-semibold">Text Color</label>
-
-        <input
-          {...register("descriptionColor")}
-          type="color"
-          className="w-full h-12 rounded-sm"
-        />
+      <div className="mt-4 flex justify-between items-center">
+        <label className="text-xs  font-semibold"> Color</label>
+        <div>
+          <input
+            {...register("descriptionColor")}
+            type="color"
+            className="w-[5rem] h-10 rounded-sm"
+          />
+        </div>
       </div>
-
-      <div className="relative my-6 ">
-        <div className="flex gap-4">
-          {["Font Size", "Font Gap"].map((val, index) => (
-            // <p key={index}>val</p>
-            <div
-              key={index}
-              className={`text-xs font-semibold flex gap-x-4  hover:underline underline-offset-2 cursor-pointer ${
-                fontProps ? "underline-offset-2" : ""
-              }`}
-              onClick={() => setFontProps(val)}
-            >
-              <p> {val}</p>
-            </div>
+      <div className="mt-4 flex justify-between items-center">
+        <div className="text-xs font-semibold w-full">Style</div>
+        <div className="flex gap-2 ">
+          {TextStyle.map((item, index) => (
+            <>
+              <button
+                {...register("style")}
+                key={index}
+                type="button"
+                className={`p-2 ${
+                  item.name === "bold"
+                    ? "font-bold"
+                    : item.name === "italic"
+                    ? "italic"
+                    : "underline"
+                } text-black rounded-md text-sm border-white capitalize`}
+                // onClick={() => item}
+              >
+                {item.initial}
+              </button>
+            </>
           ))}
         </div>
-        <div className="flex gap-2 w-full">
-          {fontProps === "Font Size" ? (
-            <div className="relative my-6 w-full">
-              <div className="flex gap-2">
-                <i className="text-sm font-medium inline-block">aA</i>
-
-                <input
-                  {...register("descriptionSize")}
-                  type="range"
-                  min="0"
-                  max="3"
-                  step="0.1"
-                  className="w-full  h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer my-3"
-                />
-                <i className="text-xl font-medium">aA</i>
-              </div>
-            </div>
-          ) : (
-            <div className="relative my-6 w-full">
-              <div className="flex gap-2 items-center ">
-                <i className="text-sm font-medium inline-block">▲</i>
-                <input
-                  {...register("fontHeight")}
-                  type="range"
-                  min="0"
-                  max="5"
-                  step="0.1"
-                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer my-3"
-                />
-                <i className="text-sm font-medium inline-block">▼</i>
-              </div>
-            </div>
-          )}
+      </div>
+      <div className="relative mt-4 text-xs">
+        <p className="text-xs  mt-2 font-semibold flex items-start">
+          Font Size{" "}
+        </p>
+        <div className="relative my-2 w-full">
+          <div className="flex gap-2">
+            <input
+              {...register("descriptionSize")}
+              type="range"
+              min="0"
+              max="3"
+              step="0.1"
+              className="w-full  h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer my-3"
+            />
+          </div>
+        </div>
+        <div className="relative mt-4 w-full text-xs">
+          <p className="text-xs  my-4 font-semibold flex items-start">
+            Font Height
+          </p>
+          <div className="flex gap-2 items-center ">
+            <input
+              {...register("fontHeight")}
+              type="range"
+              min="0"
+              max="5"
+              step="0.1"
+              className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer my-3"
+            />
+          </div>
         </div>
       </div>
     </div>

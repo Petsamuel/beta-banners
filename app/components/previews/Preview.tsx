@@ -14,6 +14,8 @@ interface PreviewProps {
   descriptionAlignment: string;
   descriptionColor: string;
   bannerPreview?: string;
+  iconSize: number;
+  iconColor: string;
 }
 
 export const Preview = ({
@@ -25,6 +27,8 @@ export const Preview = ({
   color,
   descriptionAlignment,
   descriptionColor,
+  iconSize,
+  iconColor,
 }: // bannerPreview
 PreviewProps) => {
   type BannerSizeType = "twitter" | "facebook" | "youtube";
@@ -133,7 +137,11 @@ PreviewProps) => {
               >
                 {watch("tools")?.map(
                   (IconComponent: JSX.Element[], index: number) => (
-                    <span key={index} className={"w-8 h-8 text-main-blue"}>
+                    <span
+                      style={{ fontSize: `${iconSize}`, color: `${iconColor}` }}
+                      key={index}
+                      className={`flex gap-2 items-center`}
+                    >
                       {IconComponent}
                     </span>
                   )
@@ -143,8 +151,6 @@ PreviewProps) => {
           </div>
         </div>
       </div>
-
-      
     </div>
   );
 };

@@ -38,6 +38,8 @@ export default function BannerGenerator() {
       selectedGradientType: "linear",
       patterns: "bg-dot-black",
       selectedBanner: "aspect-facebook-cover",
+      iconSize: 2,
+      iconColor: "#000000",
       tools: [] as JSX.Element[],
     },
   });
@@ -46,11 +48,13 @@ export default function BannerGenerator() {
   const descriptionAlignment = watch("descriptionAlignment");
   const descriptionColor = watch("descriptionColor");
   const color = watch("color");
+
   const patternList = Array.isArray(watch("patterns"))
     ? watch("patterns")
     : [watch("patterns")];
   const colorStart = watch("colorStart");
   const colorEnd = watch("colorEnd");
+
   const [swiper, setSwiper] = useState<any>(null);
   const [currentStep, setCurrentStep] = useState(0);
   const [data, setdata] = useState<any>();
@@ -115,6 +119,8 @@ export default function BannerGenerator() {
             alignment={alignment}
             descriptionAlignment={descriptionAlignment}
             bannerPreview={watch("selectedBanner")}
+            iconColor={watch("iconColor")}
+            iconSize={watch("iconSize")}
           />
           <Button
             type="button"
@@ -126,7 +132,7 @@ export default function BannerGenerator() {
       )}
 
       <section className="h-[101svh] flex flex-col gap-1 snap-start  relative">
-        <div className="w-full h-[10rem] flex justify-between p-4 items-center">
+        {/* <div className="w-full h-[10rem] flex justify-between p-4 items-center">
           <div className="flex gap-3">
             <p>{"<"}</p>
             <p>Betta Banner</p>
@@ -135,7 +141,7 @@ export default function BannerGenerator() {
             <p>Resize</p>
             <p>Download</p>
           </div>
-        </div>
+        </div> */}
         <div className="flex flex-row">
           <div className=" h-[101svh] flex-grow">
             <div
@@ -153,12 +159,13 @@ export default function BannerGenerator() {
                 alignment={alignment}
                 descriptionAlignment={descriptionAlignment}
                 bannerPreview={watch("selectedBanner")}
+                iconSize={watch("iconSize")}
+                iconColor={watch("iconColor")}
               />
             </div>
           </div>
           <div className="bg-gray-50 backdrop-blur-3xl h-[101svh] w-[25dvw] shadow-xl rounded-bl-2xl">
-            <div className="backdrop-blur-3xl w-full h-fit py-4 border-l-2">
-             
+            <div className="backdrop-blur-3xl w-full h-fit pt-4 border-l-2">
               <form
                 className="p-2 lg:px-0 flex justify-center items-center "
                 onSubmit={handleSubmit(
@@ -214,11 +221,11 @@ export default function BannerGenerator() {
                         text="Back"
                         className={`
             px-6 py-2 rounded-md transition-all
-            ${
-              currentStep === 0
-                ? "bg-gray-200 text-gray-400 cursor-not-allowed"
-                : "bg-white text-main-blue border-2 border-main-blue hover:bg-main-blue/10 hover:cursor-pointer"
-            }
+              ${
+                currentStep === 0
+                  ? "bg-gray-200 text-gray-400 cursor-not-allowed"
+                  : "bg-white text-main-blue border-2 border-main-blue hover:bg-main-blue/10 hover:cursor-pointer"
+              }
           `}
                         handleClick={handlePrev}
                         disabled={currentStep === 0}
