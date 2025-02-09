@@ -138,7 +138,7 @@ PreviewProps) => {
                 {watch("tools")?.map(
                   (IconComponent: JSX.Element[], index: number) => (
                     <span
-                      style={{ fontSize: `${iconSize}`, color: `${iconColor}` }}
+                      style={{ fontSize: `${iconSize}rem`, color: `${iconColor}` }}
                       key={index}
                       className={`flex gap-2 items-center`}
                     >
