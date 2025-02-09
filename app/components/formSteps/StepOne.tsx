@@ -5,15 +5,15 @@ import { StepProps } from "../../types/useType";
 export const StepOne = ({ control, register }: StepProps) => {
   return (
     <section className="font-[montserrat] p-4 ">
-      <legend className="font-semibold">Brand Information</legend>
-      <div className="">
-        <label className="text-xs  text-black font-semibold border-b-2 ">
-          Title
-        </label>
-         <div className=" border-b-2 w-full mb-3"/>
+      <legend className="font-semibold text-center justify-center">
+        Brand Information
+      </legend>
+      <div className="my-2">
+        <label className="text-xs  text-black font-semibold py-3">Title</label>
+        <div className=" border-b-2 w-full my-3" />
         <input
           type="text"
-          className="border rounded-lg w-full p-3 border-main-blue text-neutral-600 my-3 outline-none"
+          className="border rounded-sm w-full p-2  text-neutral-600 my-2 focus:ring-none focus:outline-none text-sm"
           placeholder="Enter your name"
           {...register("BrandName")}
         />
