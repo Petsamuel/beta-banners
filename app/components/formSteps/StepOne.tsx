@@ -4,13 +4,16 @@ import { StepProps } from "../../types/useType";
 
 export const StepOne = ({ control, register }: StepProps) => {
   return (
-    <section className="font-[montserrat]  p-4  mb-4  ">
+    <section className="font-[montserrat] p-4 ">
       <legend className="font-semibold">Brand Information</legend>
-      <div>
-        <label className="text-xs  text-black font-semibold">Brand Name</label>
+      <div className="">
+        <label className="text-xs  text-black font-semibold border-b-2 ">
+          Title
+        </label>
+         <div className=" border-b-2 w-full mb-3"/>
         <input
           type="text"
-          className="border rounded-lg w-full p-3 outline-main-blue text-neutral-600 my-3"
+          className="border rounded-lg w-full p-3 border-main-blue text-neutral-600 my-3 outline-none"
           placeholder="Enter your name"
           {...register("BrandName")}
         />
@@ -51,7 +54,7 @@ export const StepOne = ({ control, register }: StepProps) => {
         />
       </div>
       <div className="">
-        <div className="relative my-6">
+        <div className="relative mt-6">
           <label htmlFor="fontSize" className="text-xs font-semibold">
             Font Size
           </label>

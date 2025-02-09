@@ -144,19 +144,7 @@ PreviewProps) => {
         </div>
       </div>
 
-      <div className="justify-center items-center flex gap-3 mt-4">
-        {/* TODO: banner-size  */}
-        <div className="flex ">
-          {["Twitter", "LinkedIn", "Facebook"].map((val, index) => (
-            <small className="gap-x-4 flex mx-4 flex-row" key={index}>
-              <label htmlFor="bannersize" className={`flex `}>
-                <input type="radio" name="bannersize" className="px-3 flex" />
-                {val}
-              </label>
-            </small>
-          ))}
-        </div>
-      </div>
+      
     </div>
   );
 };

@@ -126,6 +126,16 @@ export default function BannerGenerator() {
       )}
 
       <section className="h-[101svh] flex flex-col gap-1 snap-start  relative">
+        <div className="w-full h-[10rem] flex justify-between p-4 items-center">
+          <div className="flex gap-3">
+            <p>{"<"}</p>
+            <p>Betta Banner</p>
+          </div>
+          <div className="flex gap-8">
+            <p>Resize</p>
+            <p>Download</p>
+          </div>
+        </div>
         <div className="flex flex-row">
           <div className=" h-[101svh] flex-grow">
             <div
@@ -146,10 +156,11 @@ export default function BannerGenerator() {
               />
             </div>
           </div>
-          <div className="bg-gray-50 backdrop-blur-3xl h-[101svh] w-[30dvw] shadow-xl rounded-bl-2xl">
-            <div className="backdrop-blur-3xl w-full h-full p-4">
+          <div className="bg-gray-50 backdrop-blur-3xl h-[101svh] w-[25dvw] shadow-xl rounded-bl-2xl">
+            <div className="backdrop-blur-3xl w-full h-fit py-4 border-l-2">
+             
               <form
-                className=" px-2 lg:px-0 flex justify-center items-center mt-4"
+                className="p-2 lg:px-0 flex justify-center items-center "
                 onSubmit={handleSubmit(
                   (data) => {
                     setdata(data);
@@ -232,8 +243,8 @@ export default function BannerGenerator() {
                     </div>
                   </div>
                 </Swiper>
-                <div className="swiper-pagination" />
               </form>
+              <div className="swiper-pagination" />
             </div>
 
             {/* - - - - - - - - - - - - - - - - - - - - */}
