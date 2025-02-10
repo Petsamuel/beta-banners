@@ -150,9 +150,7 @@ export const StepThree = ({ control, register, watch }: StepProps) => {
       </div>
       <div>
         <div className="relative my-6">
-          <p className="text-xs font-semibold">
-            Font Size
-          </p>
+          <p className="text-xs font-semibold">Size</p>
           <div className="flex gap-2">
             <input
               {...register("iconSize")}
@@ -162,7 +160,6 @@ export const StepThree = ({ control, register, watch }: StepProps) => {
               step="0.1"
               className="w-full  h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer my-3"
             />
-            
           </div>
         </div>
       </div>

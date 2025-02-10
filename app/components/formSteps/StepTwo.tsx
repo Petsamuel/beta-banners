@@ -97,7 +97,7 @@ export const StepTwo = ({ control, register }: StepProps) => {
       </div>
       <div className="relative mt-4 text-xs">
         <p className="text-xs  mt-2 font-semibold flex items-start">
-          Font Size{" "}
+          Size{" "}
         </p>
         <div className="relative my-2 w-full">
           <div className="flex gap-2">
@@ -113,7 +113,7 @@ export const StepTwo = ({ control, register }: StepProps) => {
         </div>
         <div className="relative mt-4 w-full text-xs">
           <p className="text-xs  my-4 font-semibold flex items-start">
-            Font Height
+          Height
           </p>
           <div className="flex gap-2 items-center ">
             <input
